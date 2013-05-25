@@ -24,11 +24,11 @@ module Vagrant
 
       def put_profile_file(vm)
         content = profile_file(vm.config.host_path)
-        vm.channel.sudo("echo \"#{content.gsub(/["`\\]/, '\\\\\0')}\" > \"#{vm.config.host_path.profile_path}\"")
+        vm.channel.sudo("echo \"#{content.gsub(/["`\\]/, '\\\\\0')}\" >> \"#{vm.config.host_path.profile_path}\"")
       end
 
       def profile_file(config)
-        "[ -f \"#{config.path_file}\" ] && export #{config.env_key}=\`cat \"#{config.path_file}\"\`"
+        "[ -f \"#{config.path_file}\" ] && export #{config.env_key}=`cat \"#{config.path_file}\"`"
       end
     end
   end
