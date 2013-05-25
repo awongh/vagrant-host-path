@@ -15,7 +15,7 @@ module Vagrant
       end
 
       def profile_path
-        @profile_path || "/etc/profile.d/vagrant-host-path.sh"
+        @profile_path || "/etc/zsh/zprofile"
       end
       
       def temp_upload_path
